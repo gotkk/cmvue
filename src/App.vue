@@ -4,9 +4,27 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
     </div>
+    <h1>{{count}}</h1>
+    <button @click="handleAdd">Click</button>
     <router-view/>
   </div>
 </template>
+
+<script>
+export default {
+    name: "app",
+    data() {
+      return {
+        count: 0
+      }
+    },  
+    methods: {
+      handleAdd(){
+        this.count = this.count+1;
+      }
+    },
+}
+</script>
 
 <style>
 #app {
