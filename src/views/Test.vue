@@ -25,6 +25,21 @@
       <br/>
       <h5 v-for="(item, index) in fd" :key="index">{{item}}</h5>
     </div>
+    <br />
+    <hr />
+    <div>
+        <img v-bind:src="urlm" alt="test_img"/>
+        <img :src="urlm" alt="test_img"/>
+        <h3 :class="error">Test1</h3>
+        <h3 :class="[error, error2]">Test2</h3>
+        <h3 :class="[active? error: '', error2]">Test3</h3>
+
+        <h3 style="color: red">Test4</h3>
+        <h3 style="{backgroundColor: 'red'}">Test5</h3>
+        <h3 :style="{color}">Test6</h3>
+        <h3 :style="{color: aa}">Test7</h3>
+        <h3 :style="t5">Test8</h3>
+    </div>
   </div>
 </template>
 
@@ -36,7 +51,15 @@ export default {
       count: 0,
       message: "",
       active: false,
-      fd: [ 1,2,3,4]
+      fd: [ 1,2,3],
+      urlm: "https://i0.wp.com/howto.prepareexam.icu/wp-content/uploads/2019/01/vuetify.png?fit=210%2C240&ssl=1",
+      error: "error_class",
+      error2: 'error2_class',
+      color: "green",
+      aa: "green",
+      t5: {
+          backgroundColor: 'yellow'
+      }
     };
   },
   mounted() {
@@ -68,5 +91,11 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+.error_class{
+    color: red;
+}
+.error2_class{
+    background-color: coral;
+}
 </style>
