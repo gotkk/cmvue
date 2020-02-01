@@ -1,45 +1,21 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link>|
-      <router-link to="/about">About</router-link>
+      <router-link to="/">Home</router-link><span id=stya>|</span>
+      <router-link to="/about">About</router-link>|
+      <router-link to="/test">Test</router-link>
     </div>
-    <h1>Counter is {{count}}</h1>
-    <button @click="handleAdd">Count</button>
-    <br />
-    <hr />
-    <!-- <router-view/> -->
-    <div>
-      <br />
-      <span>Input </span>
-      <input v-model="message" type="text" placeholder="enter message" />
-      &nbsp;
-      <button @click="message=''">Clear</button>
-      <br />
-      <br />
-      <span>Message is { {{message}} }</span>
-    </div>
+    <router-view/>
   </div>
 </template>
 
 <script>
 export default {
-  name: "app",
-  data() {
-    return {
-      count: 0,
-      message: ""
-    };
-  },
-  methods: {
-    handleAdd() {
-      this.count = this.count + 1;
-    }
-  }
+  name: "app"
 };
 </script>
 
-<style>
+<style scoped>
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -59,6 +35,10 @@ export default {
 
 #nav a.router-link-exact-active {
   color: #42b983;
+}
+
+span {
+  color: red;
 }
 </style>
 
