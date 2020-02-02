@@ -1,19 +1,32 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link>
-      <span id="stya">|</span>
-      <router-link to="/about">About</router-link>|
-      <router-link to="/test">Test</router-link>|
-      <router-link to="/input">Input</router-link>
-    </div>
+    <Header/>
     <router-view />
+    <Foother @onApp="AppF" fooname="gotkk"/>
+    <span>{{txt}}</span>
   </div>
 </template>
 
 <script>
+import Header from '@/components/layout/Header.vue';
+import Foother from '@/components/layout/Foother.vue';
+
 export default {
-  name: "app"
+  name: "app",
+  components: {
+    Header,
+    Foother
+  },
+  data() {
+    return {
+      txt: ""
+    }
+  },
+  methods: {
+    AppF(t){
+      this.txt= t
+    }
+  },
 };
 </script>
 
