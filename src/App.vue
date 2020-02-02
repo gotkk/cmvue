@@ -1,11 +1,13 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link><span id=stya>|</span>
+      <router-link to="/">Home</router-link>
+      <span id="stya">|</span>
       <router-link to="/about">About</router-link>|
-      <router-link to="/test">Test</router-link>
+      <router-link to="/test">Test</router-link>|
+      <router-link to="/input">Input</router-link>
     </div>
-    <router-view/>
+    <router-view />
   </div>
 </template>
 
@@ -42,4 +44,4 @@ span {
 }
 </style>
 
-// complete video 17
+// complete video 19
