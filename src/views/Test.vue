@@ -39,11 +39,16 @@
         <h3 :style="{color}">Test6</h3>
         <h3 :style="{color: aa}">Test7</h3>
         <h3 ref="aa" :style="t5">Test8</h3>
+
+        <h3>Test vuex {{$store.getters.test}}</h3>
+        <h4>{{user}}</h4>
     </div>
   </div>
 </template>
 
 <script>
+import {mapState} from 'vuex';
+
 export default {
   name: "Test",
   data() {
@@ -64,7 +69,8 @@ export default {
   },
   mounted() {
     console.log("mount");
-    this.$refs["aa"].textContent = "Test8 Ref"
+    this.$refs["aa"].textContent = "Test8 Ref";
+    this.$store.dispatch('getUser');
   },
   updated() {
     console.log("update");
@@ -87,7 +93,10 @@ export default {
       // not use () and update all of call them
       getTimes(){
           return new Date();
-      }
+      },
+      ...mapState([
+        "user"
+      ])
   },
 };
 </script>
