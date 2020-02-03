@@ -12,7 +12,7 @@
       <button @click="message=''">Clear</button>
       <br />
       <br />
-      <span>Message is { {{message}} }</span>
+      <span>Message is { {{message | uppercase}} }</span>
     </div>
     <br />
     <hr />
@@ -38,7 +38,7 @@
         <h3 style="{backgroundColor: 'red'}">Test5</h3>
         <h3 :style="{color}">Test6</h3>
         <h3 :style="{color: aa}">Test7</h3>
-        <h3 :style="t5">Test8</h3>
+        <h3 ref="aa" :style="t5">Test8</h3>
     </div>
   </div>
 </template>
@@ -64,6 +64,7 @@ export default {
   },
   mounted() {
     console.log("mount");
+    this.$refs["aa"].textContent = "Test8 Ref"
   },
   updated() {
     console.log("update");
